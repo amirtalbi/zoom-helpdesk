@@ -1,0 +1,6 @@
+backend_nestjs_tasks_structure.json
+
+
+.nx/cache
+.nx/workspace-data
+node_modules

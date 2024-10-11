@@ -2,5 +2,9 @@
   "name": "helpdesk",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "api:serve": "cd apps/api && nest start --watch",
+    "client-portal:serve": "cd apps/client/portal/web && nuxt dev"
+  }
 }

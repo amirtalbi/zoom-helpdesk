@@ -1,5 +1,4 @@
 FROM docker.io/node:lts-alpine AS deps
-
 RUN apk add --no-cache libc6-compat
 WORKDIR /usr/src/app
 COPY dist/apps/api/gateway/package*.json ./

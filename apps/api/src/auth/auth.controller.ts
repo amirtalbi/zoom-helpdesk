@@ -1,15 +1,16 @@
 import {
-  Controller,
-  Post,
   Body,
-  Param,
+  Controller,
   Get,
+  Param,
+  Post,
   Request,
   UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { CreatePasswordDto } from './dto/create-password.dto';
+import { RegisterDto } from './dto/register.dto';
 import { LocalAuthGuard } from './local-auth.guard';
-import { User } from 'src/users/users.model';
 
 @Controller('auth')
 export class AuthController {
@@ -22,8 +23,13 @@ export class AuthController {
   }
 
   @Post('register')
-  async register(@Body() user: User) {
-    return this.authService.register(user);
+  async register(@Body() registerDto: RegisterDto) {
+    return this.authService.register(registerDto);
+  }
+
+  @Post('create-password')
+  async createPassword(@Body() createPasswordDto: CreatePasswordDto) {
+    return this.authService.createPassword(createPasswordDto);
   }
 
   @Get('confirm/:token')
